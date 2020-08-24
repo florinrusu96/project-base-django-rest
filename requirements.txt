@@ -4,3 +4,5 @@ djangorestframework
 drf-yasg
 whitenoise
 gunicorn
+numpy
+sklearn

@@ -31,7 +31,7 @@ SchemaView = get_schema_view(
 
 urlpatterns = [
     urls.path("admin/", admin.site.urls, name="admin"),
-    url("^api/", urls.include("rest_api.urls")),
+    url("^api/", urls.include(("rest_api.urls", "restapi"), namespace="restapi")),
     url(r"^docs(?P<format>\.json|\.yaml)$", SchemaView.without_ui(cache_timeout=0), name="schema-json"),
     url(r"^docs/$", SchemaView.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     urls.path("", RedirectView.as_view(url="docs/", permanent=True)),
